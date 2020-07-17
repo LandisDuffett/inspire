@@ -14,7 +14,9 @@ class TodoService {
     let res = await todoApi.get();
     store.commit("todos", res.data.map(rawTodoData => new Todo(rawTodoData))).catch(err => console.error(err));
   }*/
-
+  constructor() {
+    this.getTodos()
+  }
   getTodos() {
     console.log("Calling the Todo");
     todoApi.get().then(res => {
@@ -28,7 +30,7 @@ class TodoService {
     //TODO Handle this response from the server (hint: what data comes back, do you want this?)
   }
 
-  toggleTodoStatusAsync(todoId) {
+  toggleTodoStatus(todoId) {
     let todo = store.State.todos.find(todo => todo._id == todoId);
     //TODO Make sure that you found a todo,
     //		and if you did find one
@@ -38,7 +40,7 @@ class TodoService {
     //TODO do you care about this data? or should you go get something else?
   }
 
-  removeTodoAsync(todoId) {
+  removeTodo(todoId) {
     //TODO Work through this one on your own
     //		what is the request type
     //		once the response comes back, what do you need to insure happens?

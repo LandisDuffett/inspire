@@ -3,7 +3,11 @@ import store from "../store.js";
 
 //TODO Create the render function
 function _drawTodos() {
-
+  let template = ""
+  store.State.todos.forEach(item => template += item.todoTemplate)
+  template += `</ul>
+    </div>`
+  document.getElementById("todos").innerHTML = template
 }
 
 export default class TodoController {
@@ -11,7 +15,6 @@ export default class TodoController {
     //TODO Remember to register your subscribers
     store.subscribe("todos", _drawTodos);
     TodoService.getTodos();
-
   }
 
   addTodo(e) {
@@ -27,11 +30,11 @@ export default class TodoController {
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be toggled
   toggleTodoStatus(todoId) {
-    TodoService.toggleTodoStatusAsync(todoId);
+    TodoService.toggleTodoStatus(todoId);
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
   removeTodo(todoId) {
-    TodoService.removeTodoAsync(todoId);
+    TodoService.removeTodo(todoId);
   }
 }

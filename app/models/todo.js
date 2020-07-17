@@ -6,17 +6,14 @@ export default class Todo {
     this.completed = data.completed || false
   }
 
-  get Template() {
-    this.tasks.forEach((task) => template += `
-    <li class="" style="text-decoration: ${task.strike};">${task.name}
-        <button type="button" class="close tinierfont mt-2" aria-label="Remove" onclick="app.listController.deleteTask('${task}')">
+  get todoTemplate() {
+    let template =
+      `<li>${this.description}
+        <button type="button" class="close tinierfont mt-2" aria-label="Remove" onclick="app.todoController.removeTodo('${this._id}')">
     &times;remove</button>
-    <button type="button" class="close tinierfont mt-2" aria-label="Remove" onclick="app.listController.completeTask('${task.id}')">
+    <button type="button" class="close tinierfont mt-2" aria-label="Remove" onclick="app.todoController.toggleTodoStatus('${this._id}')">
     &check;toggle</button>
-</li>`)
-
-    template += `</ul>
-    </div>`
+</li>`
 
     return template
   }
