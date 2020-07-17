@@ -8,7 +8,7 @@ export default class Todo {
 
   get todoTemplate() {
     let template =
-      `<li><input type="checkbox" name="toggle" value="completed" onclick="app.todoController.toggleTodo('${this._id}')">
+      `<li><input type="checkbox" name="toggle" value="completed" onclick="app.todoController.toggleTodoStatus('${this._id}')">
   <label for="toggle">${this.description}</label>
       
       

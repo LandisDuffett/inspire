@@ -4,6 +4,7 @@ import store from "../store.js";
 //TODO Create the render function
 function _drawTodos() {
   let template = ""
+
   store.State.todos.forEach(item => template += item.todoTemplate)
   template += `</ul>
     </div>`

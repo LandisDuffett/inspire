@@ -33,10 +33,11 @@ class TodoService {
   toggleTodoStatus(todoId) {
     let todo = store.State.todos.find(todo => todo._id == todoId);
     if (todo.completed == false) {
-      todo.completed == true
+      todo.completed = true
     } else {
-      todo.completed == false
+      todo.completed = false
     }
+    debugger
     todoApi.put(todoId, todo);
     //TODO do you care about this data? or should you go get something else?
     this.getTodos()
