@@ -2,3 +2,9 @@
   color: red;
   font-size: 2em;
 }
+
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
