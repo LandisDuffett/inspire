@@ -11,6 +11,7 @@ export default class Weather {
     this.city = data.name
     this.fahr = Math.round(1.8 * (data.main.temp - 273) + 32)
     this.cel = Math.round(data.main.temp - 273.15)
+    this.icon = data.weather[0].icon
   }
 
 }

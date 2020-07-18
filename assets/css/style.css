@@ -38,3 +38,7 @@ button:focus, .btn.focus, .btn:focus {
     outline: none !important ;
     box-shadow: none !important;
 }
+
+.flexend {
+  align-items: flex-end;
+}

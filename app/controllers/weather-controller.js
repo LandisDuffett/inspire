@@ -8,23 +8,21 @@ import store from "../store.js";
 let val = 0;
 
 function drawCel() {
-  let template = `<div>
-    
-                  <h3>${store.State.weather.city}</h3>
+  let template = `<div class="row flexend ml-1">
+                  <span><h3>${store.State.weather.city}</h3></span><span class="img-fluid"><img src="http://openweathermap.org/img/w/${store.State.weather.icon}.png" alt=""></span>
                   </div>
-                  <div>
-                  <h3>${store.State.weather.cel}°F<button class="btn btn-primary btn-circle btn-circle-sm m-1" onclick="app.weatherController.toggleFC()">C/F</button></h3>
+                  <div class="ml-1">
+                  <h3>${store.State.weather.cel}°C<button class="btn btn-primary btn-circle btn-circle-sm m-1" onclick="app.weatherController.toggleFC()">C/F</button></h3>
                   </div>`
   document.getElementById("weather").innerHTML = template
   val = 1
 }
 
 function drawWeather() {
-  let template = `<div>
-    
-                  <h3>${store.State.weather.city}</h3>
+  let template = `<div class="row flexend ml-1">
+                  <span><h3>${store.State.weather.city}</h3></span><span class="img-fluid"><img src="http://openweathermap.org/img/w/${store.State.weather.icon}.png" alt=""></span>
                   </div>
-                  <div>
+                  <div class="ml-1">
                   <h3>${store.State.weather.fahr}°F<button class="btn btn-primary btn-circle btn-circle-sm m-1" onclick="app.weatherController.toggleFC()">C/F</button></h3>
                   </div>`
   document.getElementById("weather").innerHTML = template
