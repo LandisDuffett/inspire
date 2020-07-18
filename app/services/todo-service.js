@@ -26,7 +26,7 @@ class TodoService {
   }
 
   addTodo(todo) {
-    todoApi.post("", todo);
+    todoApi.post("", todo).then((res) => this.getTodos()).catch(err => console.error(err));
     //TODO Handle this response from the server (hint: what data comes back, do you want this?)
   }
 
@@ -37,16 +37,12 @@ class TodoService {
     } else {
       todo.completed = false
     }
-    debugger
-    todoApi.put(todoId, todo);
-    //TODO do you care about this data? or should you go get something else?
-    this.getTodos()
+    todoApi.put(todoId, todo).then((res) => this.getTodos()).catch(err => console.error(err))
   }
 
   removeTodo(todoId) {
-    //TODO Work through this one on your own
-    //		what is the request type
-    //		once the response comes back, what do you need to insure happens?
+    let todo = store.State.todos.find(todo => todo._id == todoId);
+    todoApi.delete(todoId).then((res) => this.getTodos()).catch(err => console.error(err))
   }
 }
 

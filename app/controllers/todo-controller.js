@@ -7,6 +7,8 @@ function _drawTodos() {
 
   store.State.todos.forEach(item => template += item.todoTemplate)
   template += `</ul>
+  <a href="#" class="card-link">Card link</a>
+				<a href="#" class="card-link">Another link</a>
     </div>`
   document.getElementById("todos").innerHTML = template
 }
