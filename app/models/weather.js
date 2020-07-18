@@ -12,4 +12,5 @@ export default class Weather {
     this.fahr = Math.round(1.8 * (data.main.temp - 273) + 32)
     this.cel = Math.round(data.main.temp - 273.15)
   }
+
 }
