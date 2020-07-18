@@ -2,6 +2,7 @@ import ImageService from "../services/image-service.js";
 import store from "../store.js";
 
 function _drawImage() {
+    // @ts-ignore
     document.body.style.backgroundImage = `url('${store.State.image.url}')`
 }
 

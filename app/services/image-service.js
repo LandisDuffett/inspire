@@ -17,7 +17,6 @@ class ImageService {
   getImage() {
     imgApi.get().then(res => {
       store.commit("image", new Image(res.data))
-      console.log(store.State.image)
     }).catch(err => console.error(err))
 
   }
