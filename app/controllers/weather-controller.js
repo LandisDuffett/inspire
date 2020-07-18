@@ -5,41 +5,30 @@ import store from "../store.js";
 //		you may wish to check out the model and include some additional data.
 
 //TODO Complete rendering data to the screen
+let val = 0;
 
 function drawCel() {
   let template = `<div>
+    
                   <h3>${store.State.weather.city}</h3>
                   </div>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-primary btn-sm active">
-    <input type="radio" name="options" id="option1" autocomplete="off" onclick="app.weatherController.changeFahr()"> Fahrenheit
-  </label>
-  <label class="btn btn-danger btn-sm">
-    <input type="radio" name="options" id="option2" onclick="app.weatherController.changeCel()" autocomplete="off"> Celsius
-  </label>
-</div>
                   <div>
-                  <h3>${store.State.weather.cel}C</h3>
+                  <h3>${store.State.weather.cel}°F<button class="btn btn-primary btn-circle btn-circle-sm m-1" onclick="app.weatherController.toggleFC()">C/F</button></h3>
                   </div>`
   document.getElementById("weather").innerHTML = template
+  val = 1
 }
 
 function drawWeather() {
   let template = `<div>
+    
                   <h3>${store.State.weather.city}</h3>
                   </div>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-primary btn-sm active">
-    <input type="radio" name="options" id="option1" autocomplete="off" onclick="app.weatherController.changeFahr()"> Fahrenheit
-  </label>
-  <label class="btn btn-danger btn-sm">
-    <input type="radio" name="options" id="option2" onclick="app.weatherController.changeCel()" autocomplete="off"> Celsius
-  </label>
-</div>
                   <div>
-                  <h3>${store.State.weather.fahr}F</h3>
+                  <h3>${store.State.weather.fahr}°F<button class="btn btn-primary btn-circle btn-circle-sm m-1" onclick="app.weatherController.toggleFC()">C/F</button></h3>
                   </div>`
   document.getElementById("weather").innerHTML = template
+  val = 0
 }
 export default class WeatherController {
   constructor() {
@@ -47,10 +36,12 @@ export default class WeatherController {
     WeatherService.getWeather();
   }
 
-  changeFahr() {
-    drawWeather()
+  toggleFC() {
+    if (val == 0) {
+      drawCel()
+    } else {
+      drawWeather()
+    }
   }
-  changeCel() {
-    drawCel()
-  }
+
 }
