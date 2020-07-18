@@ -16,6 +16,8 @@ function drawCel() {
                   </div>`
   document.getElementById("weather").innerHTML = template
   val = 1
+  store.State.weather.drawClock()
+  store.State.weather.updateClock()
 }
 
 function drawWeather() {
@@ -27,6 +29,8 @@ function drawWeather() {
                   </div>`
   document.getElementById("weather").innerHTML = template
   val = 0
+  document.getElementById("clock").firstChild.nodeValue = store.State.weather.drawClock();
+  store.State.weather.updateClock()
 }
 export default class WeatherController {
   constructor() {
@@ -41,5 +45,8 @@ export default class WeatherController {
       drawWeather()
     }
   }
+
+
+
 
 }

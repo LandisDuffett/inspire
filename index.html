@@ -12,31 +12,38 @@
 </head>
 
 <body id="bg-image">
-	<div class="outline" id="weather">
+	<div class="col-4">
+		<div class="outline" id="weather">
 
-
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-	<div class="card" style="width: 18rem;">
-		<div class="card-body">
-			<h5 class="card-title" id="remaining">To Do List</h5>
-			<form onsubmit="app.todoController.addTodo(event)">
-				<div class="form-group">
-					<input type="text" name="description" class="form-control" placeholder="Enter Task Name...">
-					<button type="submit" class="close tinyfont mt-1" aria-label="Remove">
-						<span>&plus;add task</span>
-					</button>
-				</div>
-			</form>
-			<ul class="pl-3 no-bullets" id="todos">
 
 		</div>
+
+		<div id="quote">
+			The Quote
+		</div>
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title" id="remaining">To Do List</h5>
+				<form onsubmit="app.todoController.addTodo(event)">
+					<div class="form-group">
+						<input type="text" name="description" class="form-control" placeholder="Enter Task Name...">
+						<button type="submit" class="close tinyfont mt-1" aria-label="Remove">
+							<span>&plus;add task</span>
+						</button>
+					</div>
+				</form>
+				<ul class="pl-3 no-bullets" id="todos">
+
+			</div>
+		</div>
 	</div>
+	<div class="col-4">
+		<span id="clock">&nbsp;</span>
+	</div>
+	<div class="col-4">
 
 	</div>
+
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

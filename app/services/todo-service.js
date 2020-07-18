@@ -21,7 +21,6 @@ class TodoService {
     console.log("Calling the Todo");
     todoApi.get().then(res => {
       store.commit("todos", res.data.data.map(rawTodoData => new Todo(rawTodoData)))
-      console.log(store.State.todos)
     }).catch(err => console.error(err))
   }
 
