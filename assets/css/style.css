@@ -8,3 +8,9 @@ ul.no-bullets {
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
