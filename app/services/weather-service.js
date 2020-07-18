@@ -16,7 +16,7 @@ class WeatherService {
     weatherApi.get().then(res => {
       store.commit("weather", new Weather(res.data));
     }).catch(err => console.error(err))
-    console.log(store.State.weather.icon)
+    console.log("yup, every 60")
   }
 
 

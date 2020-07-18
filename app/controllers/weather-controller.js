@@ -16,8 +16,24 @@ function drawCel() {
                   </div>`
   document.getElementById("weather").innerHTML = template
   val = 1
-  store.State.weather.drawClock()
-  store.State.weather.updateClock()
+}
+
+function drawClock() {
+  let currentTime = store.State.weather.time;
+  let leftover = currentTime % (24 * 3600)
+  let currentHours = Math.floor(leftover / 3600);
+  let currentMinutes = Math.floor((leftover % 3600) / 60);
+  currentHours = currentHours - 6;
+  let timeOfDay = (currentHours < 12) ? "AM" : "PM";
+  currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+  currentHours = (currentHours == 0) ? 12 : currentHours;
+  let stringMinutes = currentMinutes.toString();
+  stringMinutes = (currentMinutes < 10 ? "0" : "") + stringMinutes;
+  let stringHours = currentHours.toString();
+  let currentTimeString = stringHours + ":" + stringMinutes + " " + timeOfDay;
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  console.log("doing my job every 60 seconds")
+  console.log(currentTimeString)
 }
 
 function drawWeather() {
@@ -29,13 +45,14 @@ function drawWeather() {
                   </div>`
   document.getElementById("weather").innerHTML = template
   val = 0
-  document.getElementById("clock").firstChild.nodeValue = store.State.weather.drawClock();
-  store.State.weather.updateClock()
+  drawClock()
 }
+
 export default class WeatherController {
   constructor() {
     store.subscribe("weather", drawWeather);
     WeatherService.getWeather();
+    setInterval(WeatherService.getWeather, 60000)
   }
 
   toggleFC() {
@@ -45,6 +62,7 @@ export default class WeatherController {
       drawWeather()
     }
   }
+
 
 
 

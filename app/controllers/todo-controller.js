@@ -14,10 +14,8 @@ function _drawTodos() {
   let template = ""
   store.State.todos.forEach(item => template += item.todoTemplate)
   let tasksRemaining = countRemaining()
-  let remainingTemplate = `number of tasks to complete: ${tasksRemaining}`
+  let remainingTemplate = `<h2 class="text-center">My To Do List</h2><p>Tasks to complete: ${tasksRemaining}</p>`
   template += `</ul>
-  <a href="#" class="card-link">Card link</a>
-				<a href="#" class="card-link">Another link</a>
     </div>`
   document.getElementById("remaining").innerHTML = remainingTemplate.toString()
   document.getElementById("todos").innerHTML = template

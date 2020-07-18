@@ -1,5 +1,6 @@
 export default class Quote {
     constructor(data) {
-        this.url = data.url
+        this.body = data.quote.body
+        this.author = data.quote.author
     }
 }

@@ -10,7 +10,7 @@ export default class Todo {
     let template =
       `<li><input type="checkbox" name="toggle" value="completed" ${this.completed ? 'checked' : ''} onclick="app.todoController.toggleTodoStatus('${this._id}')">
   <label for="toggle">${this.description}</label>
-        <button type="button" class="close tinierfont mt-2" aria-label="Remove" onclick="app.todoController.removeTodo('${this._id}')">
+        <button type="button" class="close tinyfont mt-2" aria-label="Remove" onclick="app.todoController.removeTodo('${this._id}')">
     &times;remove</button>
 </li>`
 

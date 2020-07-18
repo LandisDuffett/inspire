@@ -11,19 +11,28 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image">
+<body id="bg-image" class="d-flex">
 	<div class="col-4">
 		<div class="outline" id="weather">
 
 
 		</div>
 
-		<div id="quote">
-			The Quote
+
+	</div>
+	<div class="col-4 d-flex justify-content-center align-items-center">
+		<div>
+			<span class="outline" id="clock">&nbsp;</span>
+			<span class="mb-4 outline align-items-bottom">
+				<h3 id="quote" class="quote"></h3>
+				<h4 id="author"></h4>
+			</span>
 		</div>
-		<div class="card" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title" id="remaining">To Do List</h5>
+	</div>
+	<div class="col-4 marleft">
+		<div class="card mt-4 width">
+			<div class="card-body bg-light">
+				<div class="card-title" id="remaining"></div>
 				<form onsubmit="app.todoController.addTodo(event)">
 					<div class="form-group">
 						<input type="text" name="description" class="form-control" placeholder="Enter Task Name...">
@@ -36,12 +45,6 @@
 
 			</div>
 		</div>
-	</div>
-	<div class="col-4">
-		<span id="clock">&nbsp;</span>
-	</div>
-	<div class="col-4">
-
 	</div>
 
 
