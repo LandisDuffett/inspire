@@ -2,14 +2,24 @@ import TodoService from "../services/todo-service.js";
 import store from "../store.js";
 
 //TODO Create the render function
+function countRemaining() {
+  let count = 0
+  store.State.todos.forEach(item => {
+    !item.completed ? count++ : count
+  })
+  return count
+}
+
 function _drawTodos() {
   let template = ""
-
   store.State.todos.forEach(item => template += item.todoTemplate)
+  let tasksRemaining = countRemaining()
+  let remainingTemplate = `number of tasks to complete: ${tasksRemaining}`
   template += `</ul>
   <a href="#" class="card-link">Card link</a>
 				<a href="#" class="card-link">Another link</a>
     </div>`
+  document.getElementById("remaining").innerHTML = remainingTemplate.toString()
   document.getElementById("todos").innerHTML = template
 }
 
@@ -19,6 +29,7 @@ export default class TodoController {
     store.subscribe("todos", _drawTodos);
     TodoService.getTodos();
   }
+
 
   addTodo(e) {
     console.log("hellofromcontrolleradd")
