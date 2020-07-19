@@ -19,19 +19,28 @@ function drawCel() {
 }
 
 function drawClock() {
-  debugger
-  let currentTime = store.State.weather.time - 21600;
+  let unixTime = store.State.weather.time
+  let currentTime = unixTime - 21600;
   let leftover = currentTime % (24 * 3600)
   let currentHours = Math.floor(leftover / 3600);
   let currentMinutes = Math.floor((leftover % 3600) / 60);
   let timeOfDay = (currentHours < 12) ? "AM" : "PM";
-  currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
-  currentHours = (currentHours == 0) ? 12 : currentHours;
+  let current12Hours = (currentHours > 12) ? currentHours - 12 : currentHours;
+  current12Hours = (current12Hours == 0) ? 12 : current12Hours;
   let stringMinutes = currentMinutes.toString();
   stringMinutes = (currentMinutes < 10 ? "0" : "") + stringMinutes;
-  let stringHours = currentHours.toString();
+  let stringHours = current12Hours.toString();
   let currentTimeString = stringHours + ":" + stringMinutes + " " + timeOfDay;
+  if (currentHours >= 3 && currentHours <= 11) {
+    document.getElementById("greeting").innerHTML = "Good Morning!"
+  } else if (currentHours >= 12 && currentHours <= 16) {
+    document.getElementById("greeting").innerHTML = "Good Afternoon!"
+  } else {
+    document.getElementById("greeting").innerHTML = "Good Evening!"
+  }
   document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+
+
   console.log("doing my job every 60 seconds")
   console.log(currentTimeString)
 }
