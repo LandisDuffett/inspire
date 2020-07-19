@@ -9,6 +9,7 @@ const _timeApi = axios.create({
 //TODO create methods to retrieve data trigger the update window when it is complete
 class TimeService {
   constructor() {
+    //this.getTime()
     this.getTime()
   }
   getTime() {

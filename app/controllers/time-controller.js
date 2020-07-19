@@ -30,6 +30,6 @@ export default class TimeController {
         //TODO Remember to register your subscribers
         store.subscribe("time", _drawTime);
         TimeService.getTime();
-        setInterval(TimeService.getTime, 60000)
+        setInterval(TimeService.getTime, 30000)
     }
 }
