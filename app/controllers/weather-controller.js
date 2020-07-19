@@ -19,11 +19,11 @@ function drawCel() {
 }
 
 function drawClock() {
-  let currentTime = store.State.weather.time;
+  debugger
+  let currentTime = store.State.weather.time - 21600;
   let leftover = currentTime % (24 * 3600)
   let currentHours = Math.floor(leftover / 3600);
   let currentMinutes = Math.floor((leftover % 3600) / 60);
-  currentHours = currentHours - 6;
   let timeOfDay = (currentHours < 12) ? "AM" : "PM";
   currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
   currentHours = (currentHours == 0) ? 12 : currentHours;
