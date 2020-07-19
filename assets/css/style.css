@@ -70,3 +70,12 @@ button:focus, .btn.focus, .btn:focus {
     -1px 1px 0 #fff,
     1px 1px 0 #fff;  
 }
+
+.hide {
+  visibility: hidden;
+}
+
+.quote:hover + .hide {
+  visibility: visible;
+  color: rgb(26, 1, 1);
+}
