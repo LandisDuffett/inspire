@@ -21,6 +21,8 @@ function _drawTime() {
         document.getElementById("greeting").innerHTML = "Good Evening!"
     }
     document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+    //document.getElementById("clock").innerHTML = currentTimeString;
+
 }
 
 //TODO Create methods for constructor, and rendering the quote to the page

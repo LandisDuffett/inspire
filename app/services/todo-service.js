@@ -40,7 +40,7 @@ class TodoService {
   }
 
   removeTodo(todoId) {
-    let todo = store.State.todos.find(todo => todo._id == todoId);
+    //let todo = store.State.todos.find(todo => todo._id == todoId);
     todoApi.delete(todoId).then((res) => this.getTodos()).catch(err => console.error(err))
   }
 }
