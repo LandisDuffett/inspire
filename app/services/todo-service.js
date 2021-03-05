@@ -20,7 +20,7 @@ class TodoService {
   getTodos() {
     console.log("Calling the Todo");
     todoApi.get().then(res => {
-      store.commit("todos", res.data.data.map(rawTodoData => new Todo(rawTodoData)))
+      store.commit("todos", res.data.map(rawTodoData => new Todo(rawTodoData)))
     }).catch(err => console.error(err))
   }
 
