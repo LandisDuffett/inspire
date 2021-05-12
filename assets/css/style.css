@@ -59,7 +59,7 @@ button:focus, .btn.focus, .btn:focus {
 }
 
 .width {
-  width: 18rem;
+  width: fit-content;
 }
 
 .tinyfont {
