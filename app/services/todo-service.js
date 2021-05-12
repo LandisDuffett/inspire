@@ -26,6 +26,7 @@ class TodoService {
 
   addTodo(todo) {
     todoApi.post("", todo).then((res) => this.getTodos()).catch(err => console.error(err));
+    document.getElementById('task').value = '';
     //TODO Handle this response from the server (hint: what data comes back, do you want this?)
   }
 
